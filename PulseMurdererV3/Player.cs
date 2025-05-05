@@ -2,15 +2,55 @@
 {
     public class Player
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Avatar { get; set; }
-        public bool IsMurderer { get; set; }
+        private int id;
+        private string? name;
+        private string? avatar;
+        private bool isMurderer;
 
+        public Player(){
+            Id = id;
+            Name = name;
+            Avatar = avatar;
+            IsMurderer = isMurderer;
+        }
 
-        public override string ToString()
+        public int Id {
+            get => id;
+            set{
+                id = value;
+            }
+        }
+
+        public string? Name { 
+            get => name;
+            set{
+                if(value == null){
+                    throw new ArgumentNullException("Name cannot be empty");
+                }
+                if(value.Length < 2){
+                    throw new ArgumentException("Name length cannot be lower than 2");
+                }
+                name = value;
+            }
+        }
+
+        public string? Avatar { 
+            get => avatar;
+            set{
+                avatar = value;
+            }
+        }
+
+        public bool IsMurderer { 
+            get => isMurderer;
+            set{
+                isMurderer = value;
+            }
+        }
+
+        public override string? ToString()
         {
-            return $"ID: {Id}, Name: {Name}, Avatar: {Avatar}, IsMurderer: {IsMurderer}";
+            return $"Id: {Id}, Name: {Name}, Avatar: {Avatar}, IsMurdere: {IsMurderer}";
         }
     }
 }
