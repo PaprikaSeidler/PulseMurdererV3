@@ -11,10 +11,22 @@ namespace PulseMurdererV3.Tests
     [TestClass()]
     public class PlayerRepositoryTests
     {
+        PlayerRepository? repo;
+
+        [TestInitialize]
+        public void TestInitializer(){
+            repo = new();
+        }
+
         [TestMethod()]
         public void GetAllPlayersTest()
         {
-            Assert.Fail();
+            Assert.IsNotNull(repo);
+            List<Player> players = repo.GetAllPlayers();
+
+            Assert.AreNotEqual(4,players.Count);
+            Assert.AreEqual(5,players.Count);
+            Assert.AreNotEqual(6,players.Count);
         }
     }
 }
