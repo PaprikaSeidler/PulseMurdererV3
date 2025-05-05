@@ -10,7 +10,6 @@ namespace PulseMurdererV3
     {
         public void GetAllPlayers()
         {
-            
         }
     }
 }
