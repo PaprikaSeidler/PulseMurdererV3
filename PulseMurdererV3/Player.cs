@@ -10,7 +10,7 @@
 
         public override string ToString()
         {
-            return "";
+            return $"ID: {Id}, Name: {Name}, Avatar: {Avatar}, IsMurderer: {IsMurderer}";
         }
     }
 }
