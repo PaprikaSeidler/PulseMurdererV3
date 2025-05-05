@@ -7,11 +7,16 @@
         private string? avatar;
         private bool isMurderer;
 
-        public Player(){
+        public Player(int id, string? name, string? avatar, bool isMurderer)
+        {
             Id = id;
             Name = name;
             Avatar = avatar;
             IsMurderer = isMurderer;
+        }
+
+        public Player() 
+        {
         }
 
         public int Id {
@@ -21,15 +26,15 @@
             }
         }
 
-        public string? Name { 
+        public string? Name
+        {
             get => name;
-            set{
-                if(value == null){
-                    throw new ArgumentNullException("Name cannot be empty");
-                }
-                if(value.Length < 2){
-                    throw new ArgumentException("Name length cannot be lower than 2");
-                }
+            set
+            {
+                if (value == null)
+                    throw new ArgumentNullException("Name is null");
+                if (value.Length < 2)
+                    throw new ArgumentException("Name must be at least 4 characters long");
                 name = value;
             }
         }
@@ -50,7 +55,7 @@
 
         public override string? ToString()
         {
-            return $"Id: {Id}, Name: {Name}, Avatar: {Avatar}, IsMurdere: {IsMurderer}";
+            return $"Id: {Id}, Name: {Name}, Avatar: {Avatar}, IsMurderer: {IsMurderer}";
         }
     }
 }

@@ -3,6 +3,7 @@ using PulseMurdererV3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
@@ -29,8 +30,8 @@ namespace PulseMurdererV3.Tests
             Assert.IsNotNull(test);
 
             Assert.AreEqual(expectedName, test.Name);
-            Assert.ThrowsException<ArgumentNullException>(() => test.Name == null);
-            Assert.ThrowsException<ArgumentException>(() => test.Name == " ");
+            Assert.ThrowsException<ArgumentNullException>(() => test.Name = null);
+            Assert.ThrowsException<ArgumentException>(() => test.Name = " ");
         }
 
         [TestMethod]
