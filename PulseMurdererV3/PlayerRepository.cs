@@ -8,8 +8,19 @@ namespace PulseMurdererV3
 {
     public class PlayerRepository
     {
-        public void GetAllPlayers()
+        private List<Player> players = new();
+
+        public PlayerRepository(){
+            players.Add(new Player() {Name = "Miki", IsMurderer = false});
+            players.Add(new Player() {Name = "Pap", IsMurderer = false});
+            players.Add(new Player() {Name = "Jais", IsMurderer = false});
+            players.Add(new Player() {Name = "Peter", IsMurderer = true});
+            players.Add(new Player() {Name = "Morten", IsMurderer = false});
+        }
+
+        public List<Player> GetAllPlayers()
         {
+            return new List<Player>(players);
         }
     }
 }
