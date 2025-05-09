@@ -7,13 +7,15 @@
         private bool hasVoted;
         private int votesRecieved;
 
-        public Player(int id, string? name, string? avatar, bool isMurderer) {
+
+        public Player(int id, string? name, string? avatar, bool isMurderer, int votesRecieved) 
+        {
             Id = id;
             Name = name;
             Avatar = avatar;
             IsMurderer = isMurderer;
             HasVoted = hasVoted;
-            votesRecieved = votesRecieved;
+            VotesRecieved = votesRecieved;
         }
 
         public Player() {
