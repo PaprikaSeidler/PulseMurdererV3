@@ -53,11 +53,14 @@ namespace PulseMurdererV3
                 }
             }
 
-            return null;
+            throw new ArgumentNullException("Player not found");
         }
 
         public Player? UpdatePlayer(int id, Player? newValues) {
             Player? existingPlayer = this.GetPlayerById(id);
+            if(newValues == null){
+                throw new ArgumentNullException("New values cannot be null");
+            }
             if(existingPlayer == null){
                 throw new ArgumentNullException("Player not found");
             }

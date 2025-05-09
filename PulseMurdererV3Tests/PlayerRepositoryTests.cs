@@ -40,7 +40,7 @@ namespace PulseMurdererV3.Tests
 
             Assert.ThrowsException<ArgumentNullException>(() => repo?.AddPlayer(null));
 
-            Assert.AreEqual("Test",repo?.AddPlayer(new Player() {Name = "Test", IsMurderer = true}).Name);
+            Assert.AreEqual("Test",repo?.AddPlayer(new Player() {Name = "Test", IsMurderer = true})?.Name);
 
             players = repo?.GetAllPlayers();
 
@@ -54,17 +54,15 @@ namespace PulseMurdererV3.Tests
             Assert.IsNotNull(repo);
             List<Player>? players = repo?.GetAllPlayers();
 
-            // this.AddPlayer(new Player() {Name = "Miki", IsMurderer = false});
-            // this.AddPlayer(new Player() {Name = "Pap", IsMurderer = false});
-            // this.AddPlayer(new Player() {Name = "Jais", IsMurderer = false});
-            // this.AddPlayer(new Player() {Name = "Peter", IsMurderer = true});
-            // this.AddPlayer(new Player() {Name = "Morten", IsMurderer = false});
-
-            Assert.AreEqual("Miki",players[0].Name);
+            string? toTest = players[0]?.Name;
+            Assert.AreEqual("Miki",toTest);
             Assert.ThrowsException<ArgumentNullException>(() => repo?.UpdatePlayer(1,null));
 
-            Player? testNameChange = new() { Name = "Mixi", IsMurderer = false};
-            Assert.AreEqual("Mixi", repo?.UpdatePlayer(1,testNameChange.Name).Name);
+            Assert.AreEqual(false, players[0]?.IsMurderer);
+
+            Player? testNameChange = new() { Name = "Mixi", IsMurderer = true};
+
+            Assert.AreEqual(true, repo?.UpdatePlayer(1,testNameChange)?.IsMurderer);
         }
     }
 }
