@@ -1,22 +1,22 @@
-﻿namespace PulseMurdererV3
-{
-    public class Player
-    {
+﻿namespace PulseMurdererV3 {
+    public class Player {
         private int id;
         private string? name;
         private string? avatar;
         private bool isMurderer;
+        private bool hasVoted;
+        private int votesRecieved;
 
-        public Player(int id, string? name, string? avatar, bool isMurderer)
-        {
+        public Player(int id, string? name, string? avatar, bool isMurderer) {
             Id = id;
             Name = name;
             Avatar = avatar;
             IsMurderer = isMurderer;
+            HasVoted = hasVoted;
+            votesRecieved = votesRecieved;
         }
 
-        public Player() 
-        {
+        public Player() {
         }
 
         public int Id {
@@ -26,8 +26,7 @@
             }
         }
 
-        public string? Name
-        {
+        public string? Name {
             get => name;
             set
             {
@@ -53,8 +52,21 @@
             }
         }
 
-        public override string? ToString()
-        {
+        public bool HasVoted{
+            get => hasVoted;
+            set{
+                hasVoted = value;
+            }
+        }
+
+        public int votesRecieved{
+            get => votesRecieved;
+            set{
+                votesRecieved = value;
+            }
+        }
+
+        public override string? ToString() {
             return $"Id: {Id}, Name: {Name}, Avatar: {Avatar}, IsMurderer: {IsMurderer}";
         }
     }
