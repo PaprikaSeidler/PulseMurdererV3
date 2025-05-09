@@ -50,6 +50,18 @@ namespace PulseMurdererV3.Tests
         }
 
         [TestMethod]
+        public void GetPlayerByIdTest()
+        {
+            Assert.IsNotNull(repo);
+            List<Player>? players = repo?.GetAllPlayers();
+            Assert.AreEqual(5, players?.Count);
+            Assert.ThrowsException<ArgumentNullException>(() => repo?.GetPlayerById(6));
+            Player? test = repo?.GetPlayerById(1);
+            Assert.IsNotNull(test);
+            Assert.AreEqual("Miki", test?.Name);
+        }
+
+        [TestMethod]
         public void UpdatePlayerTest(){
             Assert.IsNotNull(repo);
             List<Player>? players = repo?.GetAllPlayers();
