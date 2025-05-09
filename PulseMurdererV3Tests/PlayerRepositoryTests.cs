@@ -55,7 +55,8 @@ namespace PulseMurdererV3.Tests
             Assert.IsNotNull(repo);
             List<Player>? players = repo?.GetAllPlayers();
             Assert.AreEqual(5, players?.Count);
-            Assert.ThrowsException<ArgumentNullException>(() => repo?.GetPlayerById(6));
+
+            Assert.AreEqual(null, repo?.GetPlayerById(10));
             Player? test = repo?.GetPlayerById(1);
             Assert.IsNotNull(test);
             Assert.AreEqual("Miki", test?.Name);
@@ -75,6 +76,7 @@ namespace PulseMurdererV3.Tests
             Player? testNameChange = new() { Name = "Mixi", IsMurderer = true};
 
             Assert.AreEqual(true, repo?.UpdatePlayer(1,testNameChange)?.IsMurderer);
+            Assert.ThrowsException<ArgumentNullException>(() => repo?.UpdatePlayer(10, testNameChange));
         }
     }
 }

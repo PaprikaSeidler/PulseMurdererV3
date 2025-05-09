@@ -52,8 +52,8 @@ namespace PulseMurdererV3
                     right = mid - 1;
                 }
             }
-
-            throw new ArgumentNullException("Player not found");
+            return null;
+            //throw new ArgumentNullException("Player not found");
         }
 
         public Player? UpdatePlayer(int id, Player? newValues) {
