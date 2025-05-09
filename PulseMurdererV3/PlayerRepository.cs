@@ -15,7 +15,7 @@ namespace PulseMurdererV3
             this.AddPlayer(new Player() {Name = "Miki", IsMurderer = false});
             this.AddPlayer(new Player() {Name = "Pap", IsMurderer = false});
             this.AddPlayer(new Player() {Name = "Jais", IsMurderer = false});
-            this.AddPlayer(new Player() {Name = "Peter", IsMurderer = true});
+            this.AddPlayer(new Player() {Name = "Peter", IsMurderer = false});
             this.AddPlayer(new Player() {Name = "Morten", IsMurderer = false});
         }
 
