@@ -59,7 +59,7 @@
             }
         }
 
-        public int votesRecieved{
+        public int VotesRecieved{
             get => votesRecieved;
             set{
                 votesRecieved = value;
