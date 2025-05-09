@@ -12,21 +12,24 @@ namespace PulseMurdererV3
         private int _nextId = 1;
 
         public PlayerRepository(){
-            players.Add(new Player() {Name = "Miki", IsMurderer = false});
-            players.Add(new Player() {Name = "Pap", IsMurderer = false});
-            players.Add(new Player() {Name = "Jais", IsMurderer = false});
-            players.Add(new Player() {Name = "Peter", IsMurderer = true});
-            players.Add(new Player() {Name = "Morten", IsMurderer = false});
+            this.AddPlayer(new Player() {Name = "Miki", IsMurderer = false});
+            this.AddPlayer(new Player() {Name = "Pap", IsMurderer = false});
+            this.AddPlayer(new Player() {Name = "Jais", IsMurderer = false});
+            this.AddPlayer(new Player() {Name = "Peter", IsMurderer = true});
+            this.AddPlayer(new Player() {Name = "Morten", IsMurderer = false});
         }
 
-        public List<Player> GetAllPlayers()
+        public List<Player>? GetAllPlayers()
         {
             var playerList = new List<Player>(players);
             return playerList;
         }
 
-        public Player AddPlayer(Player player)
-        {
+        public Player? AddPlayer(Player player) {
+            if(player == null){
+                throw new ArgumentNullException("Player cannot be null");
+            }
+
             player.Id = _nextId++;
             players.Add(player);
             return player;
