@@ -31,5 +31,19 @@ namespace PulseMurdererV3
             players.Add(player);
             return player;
         }
+        public Player UpdatePlayer(Player player)
+        {
+            var existingPlayer = players.FirstOrDefault(p => p.Id == player.Id);
+            if (existingPlayer != null)
+            {
+                existingPlayer.IsMurderer = player.IsMurderer;
+                return existingPlayer;
+            }
+            else
+            {
+                throw new Exception("Player not found");
+            }
+
+        }
     }
 }

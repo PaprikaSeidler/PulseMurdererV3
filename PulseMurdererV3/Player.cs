@@ -7,13 +7,13 @@
         private bool hasVoted;
         private int votesRecieved;
 
-        public Player(int id, string? name, string? avatar, bool isMurderer) {
+        public Player(int id, string? name, string? avatar, bool isMurderer, int? votesRecieved) {
             Id = id;
             Name = name;
             Avatar = avatar;
             IsMurderer = isMurderer;
             HasVoted = hasVoted;
-            votesRecieved = votesRecieved;
+            VotesRecieved = votesRecieved;
         }
 
         public Player() {
@@ -59,12 +59,14 @@
             }
         }
 
-        public int votesRecieved{
-            get => votesRecieved;
-            set{
-                votesRecieved = value;
-            }
-        }
+        public int? VotesRecieved { get; private set; }
+
+        //public int votesRecieved{
+        //    get => votesRecieved;
+        //    set{
+        //        votesRecieved = value;
+        //    }
+        //}
 
         public override string? ToString() {
             return $"Id: {Id}, Name: {Name}, Avatar: {Avatar}, IsMurderer: {IsMurderer}";
