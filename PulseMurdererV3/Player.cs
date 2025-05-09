@@ -7,13 +7,13 @@
         private bool hasVoted;
         private int votesRecieved;
 
-        public Player(int id, string? name, string? avatar, bool isMurderer) {
+        public Player(string? name) {
             Id = id;
             Name = name;
             Avatar = avatar;
             IsMurderer = isMurderer;
             HasVoted = hasVoted;
-            votesRecieved = votesRecieved;
+            VotesRecieved = votesRecieved;
         }
 
         public Player() {
@@ -59,7 +59,7 @@
             }
         }
 
-        public int votesRecieved{
+        public int VotesRecieved{
             get => votesRecieved;
             set{
                 votesRecieved = value;
