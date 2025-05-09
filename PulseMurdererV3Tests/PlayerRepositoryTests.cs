@@ -48,6 +48,24 @@ namespace PulseMurdererV3.Tests
             Assert.AreEqual(6,players?.Count);
             Assert.AreNotEqual(7,players?.Count);
         }
+
+        [TestMethod]
+        public void UpdatePlayerTest(){
+            Assert.IsNotNull(repo);
+            List<Player>? players = repo?.GetAllPlayers();
+
+            // this.AddPlayer(new Player() {Name = "Miki", IsMurderer = false});
+            // this.AddPlayer(new Player() {Name = "Pap", IsMurderer = false});
+            // this.AddPlayer(new Player() {Name = "Jais", IsMurderer = false});
+            // this.AddPlayer(new Player() {Name = "Peter", IsMurderer = true});
+            // this.AddPlayer(new Player() {Name = "Morten", IsMurderer = false});
+
+            Assert.AreEqual("Miki",players[0].Name);
+            Assert.ThrowsException<ArgumentNullException>(() => repo?.UpdatePlayer(1,null));
+
+            Player? testNameChange = new() { Name = "Mixi", IsMurderer = false};
+            Assert.AreEqual("Mixi", repo?.UpdatePlayer(1,testNameChange.Name).Name);
+        }
     }
 }
 
