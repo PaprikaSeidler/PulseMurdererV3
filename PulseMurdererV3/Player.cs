@@ -8,7 +8,7 @@
         private int votesRecieved;
 
 
-        public Player(int id, string? name, string? avatar, bool isMurderer, int? votesRecieved) 
+        public Player(int id, string? name, string? avatar, bool isMurderer, int votesRecieved) 
         {
             Id = id;
             Name = name;
