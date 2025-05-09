@@ -25,7 +25,7 @@ namespace PulseMurdererV3
             return playerList;
         }
 
-        public Player? AddPlayer(Player player) {
+        public Player? AddPlayer(Player? player) {
             if(player == null){
                 throw new ArgumentNullException("Player cannot be null");
             }
@@ -34,19 +34,36 @@ namespace PulseMurdererV3
             players.Add(player);
             return player;
         }
-        public Player UpdatePlayer(Player player)
-        {
-            var existingPlayer = players.FirstOrDefault(p => p.Id == player.Id);
-            if (existingPlayer != null)
-            {
-                existingPlayer.IsMurderer = player.IsMurderer;
-                return existingPlayer;
-            }
-            else
-            {
-                throw new Exception("Player not found");
+
+        public Player? GetPlayerById(int id){
+            int left = 0;
+            int right = players.Count - 1;
+
+            while(left <= right){
+                int mid = left + (right - left) / 2;
+
+                if(players[mid].Id == id){
+                    return players[mid];
+                }
+                else if(players[mid].Id < id){
+                    left = mid + 1;
+                }
+                else{
+                    right = mid - 1;
+                }
             }
 
+            return null;
+        }
+
+        public Player? UpdatePlayer(int id, Player? newValues) {
+            Player? existingPlayer = this.GetPlayerById(id);
+            if(existingPlayer == null){
+                throw new ArgumentNullException("Player not found");
+            }
+
+            existingPlayer.IsMurderer = newValues.IsMurderer;
+            return existingPlayer;
         }
     }
 }
