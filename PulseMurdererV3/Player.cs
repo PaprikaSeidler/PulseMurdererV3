@@ -5,6 +5,7 @@
         private string? avatar;
         private bool isMurderer;
         private bool hasVoted;
+        private bool isAlive;
         private int votesRecieved;
 
 
@@ -15,6 +16,7 @@
             Avatar = avatar;
             IsMurderer = isMurderer;
             HasVoted = hasVoted;
+            IsAlive = isAlive;
             VotesRecieved = votesRecieved;
         }
 
@@ -58,6 +60,15 @@
             get => hasVoted;
             set{
                 hasVoted = value;
+            }
+        }
+
+        public bool IsAlive
+        {
+            get => isAlive;
+            set
+            {
+                isAlive = value;
             }
         }
 

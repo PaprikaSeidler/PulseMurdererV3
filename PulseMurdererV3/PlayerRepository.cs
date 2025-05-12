@@ -12,11 +12,11 @@ namespace PulseMurdererV3
         private int _nextId = 1;
 
         public PlayerRepository(){
-            this.AddPlayer(new Player() {Name = "Miki", IsMurderer = false});
-            this.AddPlayer(new Player() {Name = "Pap", IsMurderer = false});
-            this.AddPlayer(new Player() {Name = "Jais", IsMurderer = false});
-            this.AddPlayer(new Player() {Name = "Peter", IsMurderer = true});
-            this.AddPlayer(new Player() {Name = "Morten", IsMurderer = false});
+            this.AddPlayer(new Player() {Name = "Miki", IsMurderer = false, IsAlive = true});
+            this.AddPlayer(new Player() {Name = "Pap", IsMurderer = false, IsAlive = true});
+            this.AddPlayer(new Player() {Name = "Jais", IsMurderer = false, IsAlive = true});
+            this.AddPlayer(new Player() {Name = "Peter", IsMurderer = true, IsAlive = true});
+            this.AddPlayer(new Player() {Name = "Morten", IsMurderer = false, IsAlive = true});
         }
 
         public List<Player>? GetAllPlayers()
