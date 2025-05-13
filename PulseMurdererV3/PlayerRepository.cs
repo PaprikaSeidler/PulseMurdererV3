@@ -70,5 +70,25 @@ namespace PulseMurdererV3
             
             return existingPlayer;
         }
+
+        public void ClearVotes(){
+            foreach(Player p in players){
+                p.HasVoted = false;
+                p.VotesRecieved = 0;
+            }
+        }
+
+        public void TallyVotes(){
+            Player? mostVoted = players.
+                Where(p => p.IsAlive).
+                OrderByDescending(p => p.VotesRecieved).
+                FirstOrDefault();
+            
+
+            if (mostVoted != null && mostVoted.IsAlive){
+                mostVoted.IsAlive = false;
+            }
+            ClearVotes();
+        }
     }
 }
