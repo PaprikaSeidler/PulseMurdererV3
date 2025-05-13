@@ -65,7 +65,9 @@ namespace PulseMurdererV3
                 throw new ArgumentNullException("Player not found");
             }
 
+            existingPlayer.Avatar = newValues.Avatar;
             existingPlayer.IsMurderer = newValues.IsMurderer;
+            existingPlayer.HasVoted = newValues.HasVoted;
             existingPlayer.IsAlive = newValues.IsAlive;
             existingPlayer.VotesRecieved = newValues.VotesRecieved;
             return existingPlayer;
