@@ -67,7 +67,7 @@ namespace PulseMurdererV3
 
             existingPlayer.IsMurderer = newValues.IsMurderer;
             existingPlayer.IsAlive = newValues.IsAlive;
-            
+            existingPlayer.VotesRecieved = newValues.VotesRecieved;
             return existingPlayer;
         }
 
