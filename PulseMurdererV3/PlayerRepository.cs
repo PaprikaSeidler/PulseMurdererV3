@@ -58,6 +58,7 @@ namespace PulseMurdererV3
 
         public Player? UpdatePlayer(int id, Player? newValues) {
             Player? existingPlayer = this.GetPlayerById(id);
+
             if(newValues == null){
                 throw new ArgumentNullException("New values cannot be null");
             }
@@ -67,7 +68,7 @@ namespace PulseMurdererV3
 
             existingPlayer.IsMurderer = newValues.IsMurderer;
             existingPlayer.IsAlive = newValues.IsAlive;
-            
+            existingPlayer.VotesRecieved = newValues.VotesRecieved;
             return existingPlayer;
         }
 
