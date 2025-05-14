@@ -73,6 +73,15 @@ namespace PulseMurdererV3
             return existingPlayer;
         }
 
+        public Player? Remove(int id){
+            Player? toRemove = this.GetPlayerById(id);
+            if(toRemove == null){
+                throw new ArgumentNullException("Player not found");
+            }
+            players.Remove(toRemove);
+            return toRemove;
+        }
+
         public void ClearVotes(){
             foreach(Player p in players){
                 p.HasVoted = false;
