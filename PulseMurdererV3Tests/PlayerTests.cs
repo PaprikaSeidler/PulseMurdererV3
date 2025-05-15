@@ -41,5 +41,7 @@ namespace PulseMurdererV3.Tests
             Assert.IsNotNull(test);
             Assert.AreEqual(true, test.IsMurderer);
         }
+
+        
     }
 }

@@ -78,6 +78,42 @@ namespace PulseMurdererV3.Tests
             Assert.AreEqual(true, repo?.UpdatePlayer(1,testNameChange)?.IsMurderer);
             Assert.ThrowsException<ArgumentNullException>(() => repo?.UpdatePlayer(10, testNameChange));
         }
+        [TestMethod]
+        public void RemovePlayerTest()
+        {
+            Assert.IsNotNull(repo);
+            List<Player>? players = repo?.GetAllPlayers();
+            Assert.AreEqual(5, players?.Count);
+            repo.Remove(1);
+            players = repo?.GetAllPlayers();
+            Assert.AreEqual(4, players?.Count);
+            Assert.ThrowsException<ArgumentNullException>(() => repo?.Remove(6));
+        }
+
+        [TestMethod]
+        public void ClearVoteTest()
+        {
+            repo.UpdatePlayer(1, new Player() { Name = "Miki", HasVoted = true });
+            repo.ClearVotes();
+            Assert.AreEqual(repo.GetPlayerById(1)?.HasVoted, false);
+            repo.UpdatePlayer(1, new Player() { Name = "Miki", VotesRecieved = 1 });
+            repo.ClearVotes();
+            Assert.AreEqual(repo.GetPlayerById(1)?.VotesRecieved, 0);
+            Assert.IsNotNull(repo);
+        }
+
+        [TestMethod]
+        public void TallyVoteTest()
+        {
+            Assert.IsNotNull(repo);
+            List<Player>? players = repo?.GetAllPlayers();
+            Assert.AreEqual(5, players?.Count);
+            repo.UpdatePlayer(1, new Player() { Name = "Miki", VotesRecieved = 4 });
+            Assert.AreEqual(4, players[0]?.VotesRecieved);
+            repo.TallyVotes();
+            Assert.AreEqual(0, players[0]?.VotesRecieved);
+            Assert.AreEqual(false, players[0]?.IsAlive);
+        }
     }
 }
 
