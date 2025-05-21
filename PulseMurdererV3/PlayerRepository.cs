@@ -99,7 +99,7 @@ namespace PulseMurdererV3
             if (mostVoted != null && mostVoted.IsAlive){
                 mostVoted.IsAlive = false;
             }
-            ClearVotes();
+            //ClearVotes();
         }
     }
 }
